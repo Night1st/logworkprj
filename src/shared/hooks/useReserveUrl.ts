@@ -1,6 +1,6 @@
 import { setCookie } from 'cookies-next'
 import { useEffect } from 'react'
-import { APP_SAVE_KEY } from '../utils/constants/appContants'
+import { APP_SAVE_KEY } from '../../Settings'
 import { useRouter } from 'next/router'
 
 

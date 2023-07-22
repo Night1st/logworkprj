@@ -6,7 +6,7 @@ import { Checkbox } from '@/shared/components/common/ui/checkbox';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/shared/components/common/ui/dialog';
 import { DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/shared/components/common/ui/dropdown-menu';
 import { IArticle, useGetListArticle } from '@/shared/schemas/models/IArticle';
-import { PAGINATION } from '@/shared/utils/constants/appContants';
+import { PAGINATION } from '@/Settings';
 import { DropdownMenu } from '@radix-ui/react-dropdown-menu';
 import { ColumnDef } from '@tanstack/react-table';
 import { Edit, ListPlus, MoreHorizontal, Trash2, User } from 'lucide-react';

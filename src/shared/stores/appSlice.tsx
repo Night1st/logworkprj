@@ -1,7 +1,7 @@
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from '@reduxjs/toolkit';
 import { deleteCookie } from 'cookies-next';
-import { APP_SAVE_KEY } from '../utils/constants/appContants';
+import { APP_SAVE_KEY } from '../../Settings';
 
 
 type APPSTATE = {
@@ -38,7 +38,7 @@ export const appSlice = createSlice({
         setLoading: (state, action: PayloadAction<boolean>) => {
             state.isRouteLoading = action.payload
         }
-      
+
 
     }
 }

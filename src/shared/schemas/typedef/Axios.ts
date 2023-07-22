@@ -1,4 +1,4 @@
-import { APP_SAVE_KEY } from '@/shared/utils/constants/appContants';
+import { APP_SAVE_KEY } from '@/Settings';
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { deleteCookie, getCookie, setCookie } from 'cookies-next';
 import { IBaseResponse } from './IBaseResponse';

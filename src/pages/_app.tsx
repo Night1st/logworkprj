@@ -1,6 +1,6 @@
 import ErrorBoundary from '@/shared/components/layouts/ErrorBoudary';
-// import DashBoardLayout from '@/shared/components/layouts/dashboard/DashboardLayout';
 import { store } from '@/shared/stores';
+import { MAX_RETRY_REQUEST } from '@/Settings';
 import AbilityConfig from '@/shared/utils/functions/abilityBuild';
 import '@/styles/global.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -9,13 +9,10 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import React, { ReactElement, ReactNode } from 'react';
 import { Provider } from 'react-redux';
-import { MAX_RETRY_REQUEST } from '@/shared/utils/constants/appContants';
-// import { useGetInfoByToken } from '@/shared/schema/models/IAppUser';
-import { useAppSelector } from '@/shared/hooks/useRedux';
-import useRouterChange from '@/shared/hooks/useRouterChange';
-import DashBoardLayout from '@/shared/components/layouts/DashboardLayout';
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import ProgressBarProvider from '@/shared/components/common/ui/progressbar';
+import DashBoardLayout from '@/shared/components/layouts/DashboardLayout';
+import useRouterChange from '@/shared/hooks/useRouterChange';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;

@@ -2,7 +2,7 @@ import { useQuery, QueryClient, useQueryClient } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 import { useDebugValue } from 'react';
 import { Filter, ISearchParams } from '../schemas/typedef/ISearchParams';
-import { PAGINATION } from '../utils/constants/appContants';
+import { PAGINATION } from '../../Settings';
 
 type Props<T> = {
     apiFn: (_params?: ISearchParams) => Promise<T>;
@@ -73,7 +73,10 @@ export default function usePagination<T>({ queryKey, apiFn, defaultParams }: Pro
             query: oldQuery,
         });
     }
-    /* for query="" */
+    /**
+     * 
+     * @description : get filter param then parse to JSON after that update parameter "search" in URL
+     */
     function onChangeSearchParams(value: Filter) {
         const oldQuery = router.query;
         const oldFilterArr = parseURLSearch(oldQuery.search as string);
@@ -96,7 +99,7 @@ export default function usePagination<T>({ queryKey, apiFn, defaultParams }: Pro
         });
     }
     const finalFilter = defaultParams?.filters ? [...filters, ...defaultParams.filters] : filters;
-    const { data, isFetching, refetch } = useQuery({
+    const { data, isLoading, refetch } = useQuery({
         queryKey: [...queryKey, router],
         queryFn: () => apiFn({ page: pageIndex, size: pageSize, filters: finalFilter, sorts: sorts }),
 
@@ -107,7 +110,7 @@ export default function usePagination<T>({ queryKey, apiFn, defaultParams }: Pro
     const tableConfig = {
         pageSize: pageSize,
         pageIndex: pageIndex,
-        isLoading: isFetching,
+        isLoading,
         //@ts-ignore
         pageCount: data?.data?.totalPages,
         handChangePagination: (value: number, type: 'Page_change' | 'Size_change') => {
@@ -122,7 +125,7 @@ export default function usePagination<T>({ queryKey, apiFn, defaultParams }: Pro
     return {
         data,
         tableConfig,
-        isFetching,
+        isLoading,
         refetch,
         pageIndex,
         pageSize,
