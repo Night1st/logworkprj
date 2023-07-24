@@ -4,5 +4,5 @@ export interface IBaseModel {
     updatedDate: Date,
     createdBy: string,
     updatedBy: string,
-    // status : boolean
+    status: boolean
 }

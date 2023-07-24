@@ -17,7 +17,7 @@ export default function InputTextArea({ fieldName, form, label, placeHolder }: P
             name={fieldName}
             render={({ field }) => (
                 <FormItem>
-                    {label && <FormLabel>{label}</FormLabel>}
+                    {label && <FormLabel className='capitalize'>{label}:</FormLabel>}
                     <FormControl>
                         <Textarea
                             className="resize-y"

@@ -13,11 +13,12 @@ type Props = {
 export default function InputText({ fieldName, form, label, placeHolder }: Props) {
     return (
         <FormField
+
             control={form.control}
             name={fieldName}
             render={({ field }) => (
-                <FormItem>
-                    {label && <FormLabel>{label}</FormLabel>}
+                <FormItem >
+                    {label && <FormLabel className='capitalize'>{label}:</FormLabel>}
                     <FormControl>
                         <Input placeholder={placeHolder} {...field} />
                     </FormControl>

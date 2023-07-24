@@ -22,15 +22,16 @@ export default function InputDatePicker({ fieldName, form, label, placeHolder }:
             control={form.control}
             name={fieldName}
             render={({ field }) => (
-                <FormItem>
-                    <FormLabel className="block">{label}</FormLabel>
-                    <Popover>
+                <FormItem className='w-full'>
+                    <FormLabel className="block capitalize">{label}: </FormLabel>
+                    <Popover >
                         <PopoverTrigger asChild>
                             <FormControl>
                                 <Button
+                                    size={'lg'}
                                     variant={"outline"}
                                     className={cn(
-                                        "w-[240px] pl-3 text-left font-normal",
+                                        "p-3 text-left font-normal w-full",
                                         !field.value && "text-muted-foreground"
                                     )}
                                 >

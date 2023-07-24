@@ -21,13 +21,13 @@ const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
                     <div className='flex h-16 items-center justify-between px-8 py-4'>
                         <div className='flex items-center gap-4'>
                             <Link href='/' className='hidden items-center space-x-2 md:flex'>
-                                <Image src='/logo_single.svg' width={48} height={48} alt='Logo' />
+                                <Image src='/ngsLogo.png' width={48} height={48} alt='Logo' />
                                 <span className='hidden font-bold sm:inline-block'>{/* {siteConfig.name} */}</span>
                             </Link>
                             {MENULAYOUT === 'horizontal' && <Horizontalbar menus={APP_MENU} />}
                         </div>
                         <div>
-                            <LanguageSwitcher />
+                            {/* <LanguageSwitcher /> */}
                             <span className='ml-[20px]'>
                                 <ThemeModeToggle />
                             </span>
@@ -35,17 +35,17 @@ const DashBoardLayout = ({ children }: { children: React.ReactNode }) => {
                     </div>
                 </header>
                 {MENULAYOUT === 'vertical' && (
-                    <div className='mt-0 flex'>
-                        <aside className='w-[200px] flex-col bg-primary-foreground/5 md:flex py-4 pl-2 dark:border shadow-lg  
+                    <div className='mt-0 flex '>
+                        <aside className='w-[200px] flex-col bg-primary-foreground/5 md:flex py-4 px-2 sticky top-[65px] dark:border shadow-lg  
                         h-[calc(100vh_-_65px)] overflow-y-auto'>
                             <SidebarNav menus={APP_MENU} />
                         </aside>
-                        <main className='flex flex-grow overflow-hidden px-4'>{children}</main>
+                        <main className='flex flex-grow flex-wrap overflow-hidden p-12'>{children}</main>
                     </div>
                 )}
                 {MENULAYOUT === 'horizontal' && (
                     <div className='p-10'>
-                        <main className='w-full overflow-hidden px-4'>{children}</main>
+                        <main className='w-full overflow-hidden p-12'>{children}</main>
                     </div>
                 )}
             </div>

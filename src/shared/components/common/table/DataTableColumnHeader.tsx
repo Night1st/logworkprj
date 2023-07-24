@@ -32,7 +32,7 @@ const DataTableColumnHeader = <TData, TValue>({
   defaultFilter,
   defaultSort,
 }: DataTableColumnHeaderProps<TData, TValue>) => {
-  const [searchValue, setSearchValue] = useState<string >(defaultFilter);
+  const [searchValue, setSearchValue] = useState<string>(defaultFilter);
   if (!column.getCanSort()) {
     return <div className={cn(className)}>{title}</div>;
   }
@@ -67,37 +67,39 @@ const DataTableColumnHeader = <TData, TValue>({
               Hide
             </div>
           )}
-          <div className={itemClassName}>
-            <Input
-              value={searchValue}
-              onChange={v => {
-                setSearchValue(v.target.value);
-              }}
+          {(column?.columnDef?.meta as any)?.searchFn !== undefined &&
+            <div className={itemClassName}>
+              <Input
+                value={searchValue}
+                onChange={v => {
+                  setSearchValue(v.target.value);
+                }}
 
-            />
-            <Button
-              onClick={() => {
-                const metaCol = column?.columnDef.meta as any;
-                if (metaCol.searchFn) {
-                  metaCol.searchFn(searchValue);
-                }
-              }}
-            >
-              <SearchIcon />
-            </Button>
-            <Button
-              variant={'destructive'}
-              onClick={() => {
-                setSearchValue('');
-                const metaCol = column?.columnDef.meta as any;
-                if (metaCol.searchFn) {
-                  metaCol.searchFn(undefined);
-                }
-              }}
-            >
-              X
-            </Button>
-          </div>
+              />
+              <Button
+                onClick={() => {
+                  const metaCol = column?.columnDef.meta as any;
+                  if (metaCol?.searchFn) {
+                    metaCol.searchFn(searchValue);
+                  }
+                }}
+              >
+                <SearchIcon />
+              </Button>
+              <Button
+                variant={'destructive'}
+                onClick={() => {
+                  setSearchValue('');
+                  const metaCol = column?.columnDef.meta as any;
+                  if (metaCol?.searchFn) {
+                    metaCol.searchFn(undefined);
+                  }
+                }}
+              >
+                X
+              </Button>
+            </div>
+          }
         </PopoverContent>
       </Popover>
     </div>

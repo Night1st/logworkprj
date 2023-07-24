@@ -17,7 +17,7 @@ export default function InputNumber({ fieldName, form, label, placeHolder }: Pro
             name={fieldName}
             render={({ field }) => (
                 <FormItem>
-                    {label && <FormLabel>{label}</FormLabel>}
+                    {label && <FormLabel className='capitalize'>{label} :</FormLabel>}
                     <FormControl>
                         <Input placeholder={placeHolder} {...field} type='number'/>
                     </FormControl>

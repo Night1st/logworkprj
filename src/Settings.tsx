@@ -7,7 +7,7 @@ export const PAGINATION = {
     SIZEKEY: 'size',
     DEFAULT_PAGE_SIZE: 10
 }
-export const MENULAYOUT: 'horizontal' | 'vertical' = 'horizontal'
+export const MENULAYOUT: 'horizontal' | 'vertical' = 'vertical'
 
 
 

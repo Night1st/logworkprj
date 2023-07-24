@@ -23,15 +23,16 @@ export default function InputSelect({ form, label, placeHolder, fieldName, optio
             name={fieldName}
             render={({ field }) => (
                 <FormItem>
-                    {label && <FormLabel>{label}</FormLabel>}
+                    {label && <FormLabel className='capitalize'>{label}:</FormLabel>}
                     <Popover>
                         <PopoverTrigger asChild>
                             <FormControl>
                                 <Button
+                                    size='lg'
                                     variant="outline"
                                     role="combobox"
                                     className={cn(
-                                        "w-full justify-between",
+                                        "w-full justify-between px-3",
                                         !field.value && "text-muted-foreground"
                                     )}
                                 >

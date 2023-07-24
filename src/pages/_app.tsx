@@ -61,7 +61,7 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
   return (
     <ErrorBoundary>
       <Head>
-        <title>AppName</title>
+        <title>{process.env.NEXT_PUBLIC_APP_NAME}</title>
         {/* <link rel="icon" href="https://careerfinder.vn/wp-content/uploads/2020/05/vietnam-airline-logo.jpg" /> */}
         {/* <link rel="apple-touch-icon" href="https://careerfinder.vn/wp-content/uploads/2020/05/vietnam-airline-logo.jpg" /> */}
       </Head>
